@@ -37,6 +37,9 @@ sql-mode                  = "STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_S
 #
 thread_cache_size         = <%= node['mysql']['tunable']['thread_cache_size'] %>
 max_connections           = <%= node['mysql']['tunable']['max_connections'] %>
+<% if node['mysql']['tunable']['max_user_connections'] %>
+max_user_connections      = <%= node['mysql']['tunable']['max_user_connections'] %>
+<% end %>
 table_cache               = <%= node['mysql']['tunable']['table_cache'] %>
 query_cache_size          = <%= node['mysql']['tunable']['query_cache_size'] %>
 tmp_table_size            = 5M

@@ -88,6 +88,9 @@ auto-increment-offset    = <%= node['mysql']['auto-increment-offset'] %>
 # the first time they are touched
 myisam-recover          = BACKUP
 max_connections         = <%= node['mysql']['tunable']['max_connections'] %>
+<% if node['mysql']['tunable']['max_user_connections'] %>
+max_user_connections    = <%= node['mysql']['tunable']['max_user_connections'] %>
+<% end %>
 max_connect_errors      = <%= node['mysql']['tunable']['max_connect_errors'] %>
 concurrent_insert       = <%= node['mysql']['tunable']['concurrent_insert'] %>
 connect_timeout         = <%= node['mysql']['tunable']['connect_timeout'] %>
